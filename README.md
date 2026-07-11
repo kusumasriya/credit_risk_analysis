@@ -1,11 +1,11 @@
 # 🚀 Credit Risk Assessment Pipeline using Azure Data Factory, Azure Databricks & Microsoft Fabric
 
-![Azure](https://img.shields.io/badge/Azure-Cloud-blue)
-![Databricks](https://img.shields.io/badge/Databricks-Delta%20Lake-red)
-![PySpark](https://img.shields.io/badge/PySpark-ETL-orange)
-![ADF](https://img.shields.io/badge/Azure-DataFactory-blue)
-![Fabric](https://img.shields.io/badge/Microsoft-Fabric-green)
-
+![Azure](https://img.shields.io/badge/Microsoft%20Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
+![Databricks](https://img.shields.io/badge/Databricks-FF3621?style=for-the-badge&logo=databricks&logoColor=white)
+![PySpark](https://img.shields.io/badge/PySpark-E25A1C?style=for-the-badge&logo=apachespark&logoColor=white)
+![Delta Lake](https://img.shields.io/badge/Delta%20Lake-003B5C?style=for-the-badge)
+![ADF](https://img.shields.io/badge/Azure%20Data%20Factory-0062AD?style=for-the-badge)
+![Microsoft Fabric](https://img.shields.io/badge/Microsoft%20Fabric-742774?style=for-the-badge)
 ---
 
 # 📌 Project Overview
@@ -549,5 +549,3 @@ Credit-Risk-Assessment-Pipeline
 CHAGARLAMUDI KUSUMA SRIYA 
 
 Azure Data Engineer Project
-
----  like how to upload readme file 
