@@ -1,4 +1,4 @@
-# 🚀 Credit Risk Assessment Pipeline using Azure Data Factory, Azure Databricks & Microsoft Fabric
+#  Credit Risk Assessment Pipeline using Azure Data Factory, Azure Databricks & Microsoft Fabric
 
 ![Azure](https://img.shields.io/badge/Microsoft%20Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
 ![Databricks](https://img.shields.io/badge/Databricks-FF3621?style=for-the-badge&logo=databricks&logoColor=white)
@@ -8,7 +8,7 @@
 ![Microsoft Fabric](https://img.shields.io/badge/Microsoft%20Fabric-742774?style=for-the-badge)
 ---
 
-# 📌 Project Overview
+#  Project Overview
 
 This project implements an **Enterprise End-to-End Credit Risk Assessment Pipeline** using Microsoft Azure services following the **ELT (Extract, Load, Transform)** approach and **Medallion Architecture (Bronze → Silver → Gold)**.
 
@@ -35,7 +35,7 @@ The project also demonstrates production-ready features including:
 
 ---
 
-# 🏦 Business Problem
+#  Business Problem
 
 Financial institutions receive thousands of loan applications every day.
 
@@ -52,7 +52,7 @@ The objective is to build a scalable platform that
 
 ---
 
-# 🏗 Solution Architecture
+#  Solution Architecture
 
 ```
 Kaggle Credit Risk Dataset
@@ -84,7 +84,7 @@ Microsoft Fabric / Power BI
 
 ---
 
-# 📐 High Level Architecture
+#  High Level Architecture
 
 ```
 architecture/High_Level_Architecture.png
@@ -92,7 +92,7 @@ architecture/High_Level_Architecture.png
 
 ---
 
-# 🏛 Medallion Architecture
+#  Medallion Architecture
 
 ```
 architecture/Medallion_Architecture.png
@@ -100,7 +100,7 @@ architecture/Medallion_Architecture.png
 
 ---
 
-# ⭐ Star Schema
+#  Star Schema
 
 ```
 architecture/Star_Schema.png
@@ -108,7 +108,7 @@ architecture/Star_Schema.png
 
 ---
 
-# 🔄 ETL Flow
+#  ETL Flow
 
 ```
 architecture/ETL_Flow.png
@@ -116,7 +116,7 @@ architecture/ETL_Flow.png
 
 ---
 
-# 🛠 Technology Stack
+#  Technology Stack
 
 | Layer | Technology |
 |---------|------------|
@@ -136,7 +136,7 @@ architecture/ETL_Flow.png
 
 ---
 
-# 📂 Source Dataset
+#  Source Dataset
 
 The project uses five source datasets.
 
@@ -154,7 +154,7 @@ economic_indicators.csv
 
 ---
 
-# 📁 ADLS Folder Structure
+#  ADLS Folder Structure
 
 ```
 ADLS
@@ -176,7 +176,7 @@ Logs/
 
 ---
 
-# 🔷 Batch Processing Flow
+#  Batch Processing Flow
 
 ```
 CSV Files
@@ -220,7 +220,7 @@ Microsoft Fabric Dashboard
 
 ---
 
-# ⚡ Streaming Pipeline
+# Streaming Pipeline
 
 ```
 CSV Files
@@ -252,7 +252,7 @@ Gold
 
 ---
 
-# 🥉 Bronze Layer
+#  Bronze Layer
 
 ### Catalog
 
@@ -295,7 +295,7 @@ Bronze_Error_Log
 
 ---
 
-# 🥈 Silver Layer
+#  Silver Layer
 
 ### Catalog
 
@@ -339,7 +339,7 @@ Silver_Data_Quality
 
 ---
 
-# 🥇 Gold Layer
+#  Gold Layer
 
 ### Catalog
 
@@ -442,7 +442,7 @@ DIM_ECONOMIC_INDICATOR
 
 ---
 
-# 📈 Data Quality
+#  Data Quality
 
 The project performs
 
@@ -456,7 +456,7 @@ The project performs
 
 ---
 
-# ⚙ Delta Lake Features
+#  Delta Lake Features
 
 - ACID Transactions
 - Time Travel
@@ -469,7 +469,7 @@ The project performs
 
 ---
 
-# 📊 Dashboard
+#  Dashboard
 
 Dashboard is developed using
 
@@ -488,7 +488,7 @@ Major Reports
 
 ---
 
-# 🔒 Security & Governance
+#  Security & Governance
 
 - Unity Catalog
 - RBAC
@@ -511,7 +511,7 @@ Major Reports
 
 ---
 
-# 📂 Repository Structure
+#  Repository Structure
 
 ```
 Credit-Risk-Assessment-Pipeline
@@ -532,7 +532,7 @@ Credit-Risk-Assessment-Pipeline
 
 ---
 
-# 🚀 Future Enhancements
+#  Future Enhancements
 
 - Real-Time Fraud Detection
 - Machine Learning Credit Scoring
