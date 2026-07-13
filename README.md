@@ -4,52 +4,33 @@
 ![Databricks](https://img.shields.io/badge/Databricks-FF3621?style=for-the-badge&logo=databricks&logoColor=white)
 ![PySpark](https://img.shields.io/badge/PySpark-E25A1C?style=for-the-badge&logo=apachespark&logoColor=white)
 ![Delta Lake](https://img.shields.io/badge/Delta%20Lake-003B5C?style=for-the-badge)
-![ADF](https://img.shields.io/badge/Azure%20Data%20Factory-0062AD?style=for-the-badge)
+![Azure Data Factory](https://img.shields.io/badge/Azure%20Data%20Factory-0062AD?style=for-the-badge)
 ![Microsoft Fabric](https://img.shields.io/badge/Microsoft%20Fabric-742774?style=for-the-badge)
 
 ---
 
 # Project Overview
 
-This project implements an enterprise-grade **Credit Risk Assessment Pipeline** using Microsoft Azure services following the **ELT (Extract, Load, Transform)** approach and **Medallion Architecture (Bronze → Silver → Gold).**
+This project implements an enterprise-scale Credit Risk Assessment Pipeline using Azure Data Factory, Azure Data Lake Storage Gen2, Azure Databricks, Delta Lake, Unity Catalog, Databricks SQL Warehouse and Microsoft Fabric.
 
-The pipeline ingests raw credit risk datasets from Kaggle, converts CSV files into Parquet using Azure Data Factory, stores them in Azure Data Lake Storage Gen2, processes them with Azure Databricks and Delta Lake, creates analytical Star Schema tables, and visualizes business insights using Microsoft Fabric and Power BI.
-
-The solution demonstrates production-ready Data Engineering concepts including:
-
-- Azure Data Factory Pipelines
-- Azure Data Lake Storage Gen2
-- Azure Databricks
-- PySpark
-- Delta Lake
-- Unity Catalog
-- Schema Evolution
-- Watermarking
-- Incremental Loading
-- Audit Logging
-- Error Handling
-- SCD Type 2
-- Delta Time Travel
-- Databricks SQL Warehouse
-- Microsoft Fabric
-- Power BI Dashboards
-- Git Integration
-- CI/CD Ready Architecture
+The pipeline follows the Medallion Architecture (Bronze → Silver → Gold) and automates the complete ELT process from raw credit datasets to business-ready dashboards.
 
 ---
 
 # Business Problem
 
-Financial institutions process thousands of loan applications every day. Manual processing is slow, error-prone, and difficult to scale.
+Banks receive thousands of loan applications every day.
 
-This project automates the complete data engineering workflow by:
+Manual risk assessment is slow and error-prone.
 
-- Ingesting applicant and loan datasets
-- Cleaning and validating records
-- Performing business transformations
-- Calculating risk metrics
-- Building analytical models
-- Producing dashboards for business users
+This solution automates
+
+- Data ingestion
+- Data validation
+- Data cleansing
+- Risk score calculation
+- Business analytics
+- Dashboard generation
 
 ---
 
@@ -57,22 +38,38 @@ This project automates the complete data engineering workflow by:
 
 ```text
 Kaggle Dataset
-      │
+
+↓
+
 Azure Data Factory
-      │
+
+↓
+
 Azure Data Lake Storage Gen2
-      │
+
+↓
+
 Azure Databricks
-      │
+
+↓
+
 Bronze
-      │
+
+↓
+
 Silver
-      │
+
+↓
+
 Gold
-      │
+
+↓
+
 Databricks SQL Warehouse
-      │
-Microsoft Fabric / Power BI
+
+↓
+
+Microsoft Fabric Dashboard
 ```
 
 ---
@@ -80,7 +77,7 @@ Microsoft Fabric / Power BI
 # High Level Architecture
 
 <p align="center">
-<img src="architecture/credit risk analysis_HLD.png" width="100%">
+<img src="./ARCHITECTURE/credit_risk_analysis_HLD.png" width="100%">
 </p>
 
 ---
@@ -88,7 +85,7 @@ Microsoft Fabric / Power BI
 # Low Level Design
 
 <p align="center">
-<img src="architecture/credit risk analysis_Low level.png" width="100%">
+<img src="./ARCHITECTURE/credit_risk_analysis_Low level.png" width="100%">
 </p>
 
 ---
@@ -96,7 +93,7 @@ Microsoft Fabric / Power BI
 # Medallion Architecture
 
 <p align="center">
-<img src="architecture/Medallion_Architecture.png" width="100%">
+<img src="./ARCHITECTURE/Medallion_Architecture.png" width="100%">
 </p>
 
 ---
@@ -104,15 +101,15 @@ Microsoft Fabric / Power BI
 # Star Schema
 
 <p align="center">
-<img src="architecture/STAR_SCHEMA.jpeg" width="100%">
+<img src="./ARCHITECTURE/STAR_SCHEMA.jpeg" width="100%">
 </p>
 
 ---
 
-# Tables List (Bronze, Silver & Gold)
+# Bronze • Silver • Gold Tables
 
 <p align="center">
-<img src="architecture/Tabels_list.jpeg" width="100%">
+<img src="./ARCHITECTURE/Tabels_list.jpeg" width="100%">
 </p>
 
 ---
@@ -132,14 +129,13 @@ Microsoft Fabric / Power BI
 | Dashboard | Microsoft Fabric |
 | Reporting | Power BI |
 | Version Control | Git |
-| CI/CD | Azure DevOps |
 | Testing | PyTest |
 
 ---
 
 # Source Dataset
 
-The project uses the following datasets:
+The project uses the following datasets.
 
 - applicant_profiles.csv
 - credit_applications.csv
@@ -149,49 +145,45 @@ The project uses the following datasets:
 
 ---
 
-# ADLS Folder Structure
-
-```text
-ADLS
-
-SRC_Files/
-
-TGT_Files/
-
-Bronze/
-
-Silver/
-
-Gold/
-
-Archive/
-
-Logs/
-```
-
----
-
 # Batch Processing Flow
 
 ```text
 CSV Files
-      ↓
-Azure Data Factory
-      ↓
+
+↓
+
+ADF Pipeline
+
+↓
+
 Convert CSV → Parquet
-      ↓
+
+↓
+
 Azure Data Lake Storage Gen2
-      ↓
+
+↓
+
 Azure Databricks
-      ↓
-Bronze
-      ↓
-Silver
-      ↓
-Gold
-      ↓
+
+↓
+
+Bronze Layer
+
+↓
+
+Silver Layer
+
+↓
+
+Gold Layer
+
+↓
+
 Databricks SQL Warehouse
-      ↓
+
+↓
+
 Microsoft Fabric Dashboard
 ```
 
@@ -201,17 +193,29 @@ Microsoft Fabric Dashboard
 
 ```text
 CSV Files
-      ↓
+
+↓
+
 Python Producer
-      ↓
+
+↓
+
 Azure Event Hub
-      ↓
+
+↓
+
 Databricks Structured Streaming
-      ↓
+
+↓
+
 Bronze
-      ↓
+
+↓
+
 Silver
-      ↓
+
+↓
+
 Gold
 ```
 
@@ -219,17 +223,16 @@ Gold
 
 # Bronze Layer
 
-### Features
+Features
 
 - Raw Data Storage
-- Schema Evolution
+- Immutable Delta Tables
 - Watermarking
+- Schema Evolution
 - Audit Logging
 - Error Handling
-- Delta Tables
-- Immutable Storage
 
-### Tables
+Tables
 
 - Bronze_Applicant_Profiles
 - Bronze_Credit_Applications
@@ -243,20 +246,19 @@ Gold
 
 # Silver Layer
 
-### Transformations
+Transformations
 
 - Remove Duplicates
 - Null Handling
-- Data Standardization
-- Type Casting
-- Business Rule Validation
-- Data Quality Checks
-- Merge (Upsert)
+- Standardization
+- Data Type Validation
+- Business Rules
 - SCD Type 2
+- Merge
 - Delta Optimization
 - Time Travel
 
-### Tables
+Tables
 
 - Silver_Applicant
 - Silver_Credit
@@ -268,7 +270,7 @@ Gold
 
 # Gold Layer
 
-### Dimension Tables
+Dimension Tables
 
 - DIM_APPLICANT
 - DIM_DATE
@@ -277,45 +279,36 @@ Gold
 - DIM_CREDIT_SCORE_BAND
 - DIM_ECONOMIC_INDICATOR
 
-### Fact Table
+Fact Table
 
 - FACT_CREDIT_RISK
 
-### KPI Tables
-
-- Executive Dashboard
-- Regional Dashboard
-- Customer Dashboard
-- Credit Risk Dashboard
-
----
-
-# Business KPIs
+Business KPIs
 
 - Total Applications
-- Approved Loans
-- Rejected Loans
-- Average Credit Score
-- Average Loan Amount
+- Loan Approval Rate
+- Risk Distribution
 - High Risk Customers
 - Default Rate
-- Loan Approval Rate
+- Average Credit Score
+- Average Loan Amount
+- Region-wise Analysis
 - Debt-To-Income Ratio
 - Loan-To-Value Ratio
-- Region-wise Performance
-- Risk Distribution
 
 ---
 
-# Data Quality Checks
+# Data Quality
 
-- Duplicate Validation
-- Null Validation
+The pipeline validates
+
+- Duplicate Records
+- Null Values
 - Schema Validation
 - Data Type Validation
 - Range Validation
 - Business Rule Validation
-- Referential Integrity Checks
+- Referential Integrity
 
 ---
 
@@ -324,9 +317,9 @@ Gold
 - ACID Transactions
 - Time Travel
 - Merge
-- Vacuum
 - Optimize
-- Z-Ordering
+- Vacuum
+- ZORDER
 - Schema Evolution
 - Delta History
 
@@ -348,10 +341,9 @@ Gold
 
 - Azure Monitor
 - Log Analytics
-- Pipeline Monitoring
 - Slack Notifications
 - Email Alerts
-- Error Logs
+- Pipeline Logs
 - Audit Logs
 
 ---
@@ -362,7 +354,7 @@ Gold
 - Integration Testing
 - Schema Validation
 - Row Count Validation
-- Data Quality Testing
+- Data Quality Validation
 - Business Rule Validation
 
 ---
@@ -370,38 +362,52 @@ Gold
 # Repository Structure
 
 ```text
-Credit-Risk-Assessment-Pipeline
+credit_risk_analysis
+
+│── README.md
+
 │
-├── architecture
-│   ├── credit risk analysis_HLD.png
-│   ├── credit risk analysis_Low level.png
-│   ├── Medallion_Architecture.png
-│   ├── STAR_SCHEMA.jpeg
-│   └── Tabels_list.jpeg
+
+├── ARCHITECTURE
+
+│ ├── credit_risk_analysis_HLD.png
+
+│ ├── credit_risk_analysis_Low level.png
+
+│ ├── Medallion_Architecture.png
+
+│ ├── STAR_SCHEMA.jpeg
+
+│ └── Tabels_list.jpeg
+
 │
+
 ├── datasets
-├── adf
-├── databricks
+
+├── notebooks
+
 ├── sql
+
 ├── dashboards
+
 ├── streaming
+
 ├── tests
-├── docs
-├── screenshots
-└── README.md
+
+└── docs
 ```
 
 ---
 
 # Future Enhancements
 
+- Real-Time Credit Risk Prediction
 - Machine Learning Credit Scoring
-- Real-Time Fraud Detection
-- Azure Synapse Integration
+- Azure Synapse Analytics
+- Azure DevOps CI/CD
 - Great Expectations
-- Azure Purview
 - Data Observability
-- CI/CD Deployment using Azure DevOps
+- Automated Data Quality Monitoring
 
 ---
 
@@ -411,6 +417,6 @@ Credit-Risk-Assessment-Pipeline
 
 Azure Data Engineer
 
-Developed an end-to-end Credit Risk Assessment Pipeline using Azure Data Factory, Azure Data Lake Storage Gen2, Azure Databricks, Delta Lake, Unity Catalog, Databricks SQL Warehouse, Microsoft Fabric, and Power BI following the Medallion Architecture.
+Built an end-to-end Credit Risk Assessment Pipeline using Azure Data Factory, Azure Data Lake Storage Gen2, Azure Databricks, Delta Lake, Unity Catalog, Databricks SQL Warehouse, Microsoft Fabric, and Power BI following the Medallion Architecture.
 
-GitHub: https://github.com/kusumasriya
+**GitHub:** https://github.com/kusumasriya
