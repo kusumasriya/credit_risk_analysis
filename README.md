@@ -76,8 +76,10 @@ Microsoft Fabric Dashboard
 
 # High Level Architecture
 
+---
+
 <p align="center">
-<img src="./ARCHITECTURE/credit_risk_analysis_HLD.png" width="100%">
+  <img src="ARCHITECTURE/credit_risk_analysis_HLD.png" alt="High Level Architecture" width="100%">
 </p>
 
 ---
@@ -85,7 +87,7 @@ Microsoft Fabric Dashboard
 # Low Level Design
 
 <p align="center">
-<img src="./ARCHITECTURE/credit_risk_analysis_Low level.png" width="100%">
+  <img src="ARCHITECTURE/credit_risk_analysis_Low level.png" alt="Low Level Design" width="100%">
 </p>
 
 ---
