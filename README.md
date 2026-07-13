@@ -78,17 +78,13 @@ Microsoft Fabric Dashboard
 
 ---
 
-<p align="center">
-  <img src="ARCHITECTURE/credit_risk_analysis_HLD.png" alt="High Level Architecture" width="100%">
-</p>
+![](ARCHITECTURE/credit%20risk%20analysis_HLD.png)
 
 ---
 
 # Low Level Design
 
-<p align="center">
-  <img src="ARCHITECTURE/credit_risk_analysis_Low level.png" alt="Low Level Design" width="100%">
-</p>
+![](ARCHITECTURE/credit%20risk%20analysis_Low%20level.png)
 
 ---
 
